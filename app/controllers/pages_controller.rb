@@ -4,6 +4,10 @@ class PagesController < ApplicationController
 
   def search
     @user = User.find_by(:name => "Bob")
-    @flights = Flight.all
+    if params[:search_origin] || params[:search_destination]
+      @flights = Flight.search(params[:search_origin], params[:search_destination])
+    else
+      @flights = Flight.all
+    end
   end
 end

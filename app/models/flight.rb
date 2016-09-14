@@ -25,4 +25,8 @@ class Flight < ActiveRecord::Base
   def remaining
     self.capacity - self.reservations.length
   end
+
+  def self.search(search_origin, search_destination)
+    where("origin LIKE ? AND destination LIKE ?", "%#{search_origin}%", "%#{search_destination}%")
+  end
 end
