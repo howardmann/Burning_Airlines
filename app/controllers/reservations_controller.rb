@@ -24,15 +24,22 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
-    @user = User.find_by(:name => "Bob")
+    @user = @current_user
     @flight = Flight.find(params[:flight_id])
-    @reservation = Reservation.new(reservation_params)
-    @user.reservations << @reservation
-    @flight.reservations << @reservation
+    picked = [params[:reservation][:row].to_i, params[:reservation][:column].to_i]
+
+    if @flight.seats_taken.include?(picked)
+      redirect_to @flight, notice: 'Seat was taken'
+      return false
+    else
+      @reservation = Reservation.new(reservation_params)
+    end
 
 
     respond_to do |format|
       if @reservation.save
+        @user.reservations << @reservation
+        @flight.reservations << @reservation
         format.html { redirect_to @flight, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else

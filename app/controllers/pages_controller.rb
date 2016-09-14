@@ -3,7 +3,6 @@ class PagesController < ApplicationController
   end
 
   def search
-    @user = User.find_by(:name => "Bob")
     @flights = Flight.all
   end
 end

@@ -25,4 +25,17 @@ class Flight < ActiveRecord::Base
   def remaining
     self.capacity - self.reservations.length
   end
+
+  def seats_taken
+    rows = self.reservations.pluck("row")
+    cols = self.reservations.pluck("column")
+    seats = []
+
+    rows.each_index do |i|
+      arr = [rows[i], cols[i]]
+      seats.push(arr)
+    end
+    return seats
+  end
+
 end

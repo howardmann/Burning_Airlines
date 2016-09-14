@@ -47,7 +47,7 @@ user2 = User.create(name: "Sue")
 user3 = User.create(name: "Tom")
 user4 = User.create(name: "Tim")
 user5 = User.create(name: "Jill")
-user6 = User.create(name: "Bob")
+admin = User.create(name: "Admin")
 
 # Check User length
 puts "\nUser count: #{User.all.length}"

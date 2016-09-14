@@ -11,6 +11,14 @@
 <p><%= link_to "Home page", root_path %> | <%= link_to "Admin", airplanes_path %> | <%= link_to "User", pages_search_path %></p>
 <p>
 
+  <p>Current User:
+    <% if @current_user  %>
+      <%= @current_user.name %>
+    <% else %>
+      <%= link_to "Click to enter user name", new_user_path %>
+    <% end %>
+  </p>
+
 <hr>
 <%= yield %>
 
