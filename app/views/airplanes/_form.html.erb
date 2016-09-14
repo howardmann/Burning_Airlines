@@ -13,17 +13,25 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
   </div>
   <div class="field">
     <%= f.label :rows %><br>
-    <%= f.number_field :rows %>
+    <%= f.number_field :rows, required: true %>
   </div>
   <div class="field">
     <%= f.label :columns %><br>
-    <%= f.number_field :columns %>
+    <%= f.number_field :columns, required: true %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
+
+<p style="color:red"><em>The save and cancel buttons are placeholders for Backbone/ jQuery to display the grid seating layout of the plane below before creating</em></p>
+
+<button id="save">Save</button>
+
+<button id="cancel">Cancel</button>

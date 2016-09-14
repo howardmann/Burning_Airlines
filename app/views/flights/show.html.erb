@@ -1,29 +1,77 @@
 <p id="notice"><%= notice %></p>
 
+<nav>
+  Bob view |
+  <%= link_to 'Search' %>
+  <p>Reservation for user: <%= @user.name %></p>
+</nav>
+
+<h3>Flight details</h3>
 <p>
-  <strong>Number:</strong>
-  <%= @flight.number %>
+  <strong>
+    <%= "#{@flight.date} Flight #{@flight.number} #{@flight.origin} > #{@flight.destination}"  %>
+  </strong>
+</p>
+<p>
+  <strong>Rows</strong>
+  <%= @flight.airplane.rows %>
+</p>
+<p>
+  <strong>Columns</strong>
+  <%= @flight.airplane.columns %>
+</p>
+<p>
+  <strong>Capacity</strong>
+  <%= @flight.capacity %> seats
+</p>
+<p>
+  <strong>Remaining</strong>
+  <%= @flight.remaining %> seats
 </p>
 
-<p>
-  <strong>Origin:</strong>
-  <%= @flight.origin %>
-</p>
+<hr>
 
-<p>
-  <strong>Destination:</strong>
-  <%= @flight.destination %>
-</p>
+<h3>Flight reservations</h3>
 
-<p>
-  <strong>Date:</strong>
-  <%= @flight.date %>
-</p>
+<table>
+  <th>User</th>
+  <th>Row</th>
+  <th>Col</th>
+  <% @flight.reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.user.name %></td>
+      <td><%= reservation.row %></td>
+      <td><%= reservation.column %></td>
+    </tr>
+  <% end %>
+</table>
 
-<p>
-  <strong>Airplane:</strong>
-  <%= @flight.airplane_id %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_flight_path(@flight) %> |
-<%= link_to 'Back', flights_path %>
+<h3>New reservation</h3>
+
+<%= form_for([@flight, @reservation]) do |f| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@reservation.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+      <ul>
+      <% @reservation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :row %><br>
+    <%= f.number_field :row %>
+  </div>
+  <div class="field">
+    <%= f.label :column %><br>
+    <%= f.number_field :column %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

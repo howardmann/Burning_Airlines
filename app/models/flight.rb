@@ -16,4 +16,13 @@ class Flight < ActiveRecord::Base
   belongs_to :airplane
   has_many :reservations
   has_many :users, through: :reservations
+
+  # Logic goes here
+  def capacity
+    self.airplane.rows * self.airplane.columns
+  end
+
+  def remaining
+    self.capacity - self.reservations.length
+  end
 end

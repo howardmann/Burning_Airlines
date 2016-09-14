@@ -24,11 +24,16 @@ class ReservationsController < ApplicationController
   # POST /reservations
   # POST /reservations.json
   def create
+    @user = User.find_by(:name => "Bob")
+    @flight = Flight.find(params[:flight_id])
     @reservation = Reservation.new(reservation_params)
+    @user.reservations << @reservation
+    @flight.reservations << @reservation
+
 
     respond_to do |format|
       if @reservation.save
-        format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
+        format.html { redirect_to @flight, notice: 'Reservation was successfully created.' }
         format.json { render :show, status: :created, location: @reservation }
       else
         format.html { render :new }

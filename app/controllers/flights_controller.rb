@@ -5,11 +5,14 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+    @flight = Flight.new
   end
 
   # GET /flights/1
   # GET /flights/1.json
   def show
+    @user = User.find_by(:name => "Bob")
+    @reservation = Reservation.new
   end
 
   # GET /flights/new
@@ -28,7 +31,7 @@ class FlightsController < ApplicationController
 
     respond_to do |format|
       if @flight.save
-        format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
+        format.html { redirect_to flights_path, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
       else
         format.html { render :new }

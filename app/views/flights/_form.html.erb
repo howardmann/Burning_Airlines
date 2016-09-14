@@ -13,25 +13,29 @@
 
   <div class="field">
     <%= f.label :number %><br>
-    <%= f.text_field :number %>
+    <%= f.text_field :number, required: true %>
   </div>
   <div class="field">
     <%= f.label :origin %><br>
-    <%= f.text_field :origin %>
+    <%= f.text_field :origin, required: true %>
   </div>
   <div class="field">
     <%= f.label :destination %><br>
-    <%= f.text_field :destination %>
+    <%= f.text_field :destination, required: true %>
   </div>
   <div class="field">
     <%= f.label :date %><br>
     <%= f.date_select :date %>
   </div>
   <div class="field">
-    <%= f.label :airplane_id %><br>
-    <%= f.number_field :airplane_id %>
+    <%= f.label 'Airplane name' %><br>
+    <%= f.collection_select(:airplane_id, Airplane.all, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<p style="color:red"><em>The save and cancel buttons are placeholders for Backbone/ jQuery to display all the flights below after a new flight has been created</em></p>
+
+<button id="save">Save</button>

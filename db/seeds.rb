@@ -47,6 +47,7 @@ user2 = User.create(name: "Sue")
 user3 = User.create(name: "Tom")
 user4 = User.create(name: "Tim")
 user5 = User.create(name: "Jill")
+user6 = User.create(name: "Bob")
 
 # Check User length
 puts "\nUser count: #{User.all.length}"
@@ -70,6 +71,12 @@ user3.reservations << reservation3
 user4.reservations << reservation4
 user5.reservations << reservation5
 
+# # PSEUDOCODE BOB RESERVATION FOR FLIGHT 3
+# reservation6 = Reservation.create({:rows=> 2, :columns=> 21})
+# user6.reservations << reservation6
+# flight3.reservations << reservation6
+# #
+
 # Append reservations to flight
 flight3.reservations << reservation1 << reservation2 << reservation3 << reservation4 << reservation5
 
@@ -83,17 +90,3 @@ puts "Reservation3 user name is: #{reservation3.user.name}; seat is row: #{reser
 puts "Reservation4 user name is: #{reservation4.user.name}; seat is row: #{reservation4.row} and col: #{reservation4.column} for flight #{reservation4.flight.number}"
 
 puts "Reservation5 user name is: #{reservation5.user.name}; seat is row: #{reservation5.row} and col: #{reservation5.column} for flight #{reservation5.flight.number}"
-
-
-
-
-
-  # reservation1 = Reservation.create({:row => 1; :col =>21 }), user1.reservations << reservation1, reservation1.flights << flight3
-
-  # reservation2 = Reservation.create({:row => 2; :col =>22 }), user2.reservations << reservation2, reservation2.flights << flight3
-
-  # reservation3 = Reservation.create({:row => 3; :col =>22 }), user3.reservations << reservation3, reservation3.flights << flight3
-
-  # reservation4 = Reservation.create({:row => 4; :col =>22 }), user4.reservations << reservation4, reservation4.flights << flight3
-
-  # reservation5 = Reservation.create({:row => 3; :col =>23 }), user5.reservations << reservation5, reservation5.flights << flight3
