@@ -2,4 +2,5 @@
 
 ### Team members
 - Howie
-- Lucas 
+- Lucas
+- Arpan
