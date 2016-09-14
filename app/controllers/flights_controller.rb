@@ -4,7 +4,7 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight.all.order("date desc")
     @flight = Flight.new
     @current_user = User.find_by(:name => 'Admin')
   end

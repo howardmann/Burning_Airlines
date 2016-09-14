@@ -35,7 +35,6 @@ class ReservationsController < ApplicationController
       @reservation = Reservation.new(reservation_params)
     end
 
-
     respond_to do |format|
       if @reservation.save
         @user.reservations << @reservation

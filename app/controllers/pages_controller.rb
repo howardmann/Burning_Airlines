@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   end
 
   def search
-    @flights = Flight.all
+    @flights = Flight.all.order("date desc")
   end
 end

@@ -27,7 +27,7 @@
   <tbody>
     <% @flights.each do |flight| %>
       <tr>
-        <td><%= flight.date %></td>
+        <td><%= flight.date.strftime("%b %d, %Y") %></td>
         <td><%= flight.number %></td>
         <td><%= "#{flight.origin} > #{flight.destination}" %></td>
         <td><%= flight.airplane.name %></td>
