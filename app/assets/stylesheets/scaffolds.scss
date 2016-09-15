@@ -6,48 +6,39 @@ body {
   font-size: 13px;
   line-height: 18px;
 }
-
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
-
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
 }
-
 a {
   color: #000;
-
   &:visited {
     color: #666;
   }
-
   &:hover {
     color: #fff;
     background-color: #000;
   }
 }
-
 div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
 }
-
 #notice {
   color: hotpink;
 }
-
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
 }
-
 #error_explanation {
   width: 450px;
   border: 2px solid red;
@@ -55,7 +46,6 @@ div {
   padding-bottom: 0;
   margin-bottom: 20px;
   background-color: #f0f0f0;
-
   h2 {
     text-align: left;
     font-weight: bold;
@@ -66,17 +56,13 @@ div {
     background-color: #c00;
     color: #fff;
   }
-
   ul li {
     font-size: 12px;
     list-style: square;
   }
 }
-
-
 #holder{
 height:500px;
-
 }
 #place {
 position:relative;
@@ -95,7 +81,6 @@ font-size:0.6em;
 background-color:yellow;
 }
 #place .seat{
-
 background-color: red;
 height:33px;
 width:33px;
@@ -107,7 +92,6 @@ background-image:url("booked_seat_img.gif");
 }
 #place .selectingSeat
 {
-
 background-image:url("selected_seat_img.gif");
 }
 #place .row-3, #place .row-4{
@@ -120,42 +104,17 @@ padding-left:35px;
 height:35px;
 float:left;
 }
-
-#airplane_background {
-  background: url("http://cliparts.co/cliparts/pc5/rEX/pc5rEXb9i.jpg") no-repeat center center fixed;
-  background-size: cover;
-  z-index:-1;
-  position: fixed;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-}
-#airplane_background img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-  min-width: 50%;
-  min-height: 50%;
-
-
 //code pen
-
 *,*:before,*:after {
   box-sizing: border-box;
 }
 html {
   font-size: 16px;
 }
-
 .plane {
   margin: 20px auto;
   max-width: 300px;
 }
-
 .cockpit {
   height: 250px;
   position: relative;
@@ -179,7 +138,6 @@ html {
     margin: 100px auto 35px auto;
   }
 }
-
 .exit {
   position: relative;
   height: 50px;
@@ -204,29 +162,23 @@ html {
     right: 0;
   }
 }
-
 .fuselage {
   border-right: 5px solid #d8d8d8;
   border-left: 5px solid #d8d8d8;
 }
-
 ol {
   list-style :none;
   padding: 0;
   margin: 0;
 }
-
 .row {
-
 }
-
 .seats {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
 }
-
 .seat {
   display: flex;
   flex: 0 0 14.28571428571429%;
@@ -280,7 +232,6 @@ ol {
     border-radius: 5px;
     animation-duration: 300ms;
     animation-fill-mode: both;
-
     &:before {
       content: "";
       position: absolute;
@@ -296,95 +247,76 @@ ol {
       cursor: pointer;
       box-shadow: 0 0 0px 2px #5C6AFF;
     }
-
   }
 }
-
 @-webkit-keyframes rubberBand {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
-
   30% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
             transform: scale3d(1.25, 0.75, 1);
   }
-
   40% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
             transform: scale3d(0.75, 1.25, 1);
   }
-
   50% {
     -webkit-transform: scale3d(1.15, 0.85, 1);
             transform: scale3d(1.15, 0.85, 1);
   }
-
   65% {
     -webkit-transform: scale3d(.95, 1.05, 1);
             transform: scale3d(.95, 1.05, 1);
   }
-
   75% {
     -webkit-transform: scale3d(1.05, .95, 1);
             transform: scale3d(1.05, .95, 1);
   }
-
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
 }
-
 @keyframes rubberBand {
   0% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
-
   30% {
     -webkit-transform: scale3d(1.25, 0.75, 1);
             transform: scale3d(1.25, 0.75, 1);
   }
-
   40% {
     -webkit-transform: scale3d(0.75, 1.25, 1);
             transform: scale3d(0.75, 1.25, 1);
   }
-
   50% {
     -webkit-transform: scale3d(1.15, 0.85, 1);
             transform: scale3d(1.15, 0.85, 1);
   }
-
   65% {
     -webkit-transform: scale3d(.95, 1.05, 1);
             transform: scale3d(.95, 1.05, 1);
   }
-
   75% {
     -webkit-transform: scale3d(1.05, .95, 1);
             transform: scale3d(1.05, .95, 1);
   }
-
   100% {
     -webkit-transform: scale3d(1, 1, 1);
             transform: scale3d(1, 1, 1);
   }
 }
-
 .rubberBand {
   -webkit-animation-name: rubberBand;
           animation-name: rubberBand;
 }
-
 #centralize {
 text-align: center;
 }
-
 #create_reservation{
   color: red;
   font-size: 30px;
->>>>>>> c09a0d425e86b6dd29e0f44d3e57b517248a33e3
 }

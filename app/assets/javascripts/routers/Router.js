@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-    "": "fetchFlights"
+    "": "fetchFlights"  // localhost:3000/airplane#
   },
 
   initialize: function(){
