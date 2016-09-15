@@ -7,21 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Burning Airlines</h1>
-<p><%= link_to "Home page", root_path %> | <%= link_to "Admin", airplanes_path %> | <%= link_to "New user", new_user_path %></p>
-<p>
+  <div id="airplane_background"><%= image_tag('', style: "background-size: cover") %></div>
+  <h1>Burning Airlines</h1>
+  <p><%= link_to "Home page", root_path %> | <%= link_to "Admin", airplanes_path %> | <%= link_to "New user", new_user_path %></p>
+  <p>
 
-  <p>Current User:
-    <% if @current_user  %>
-      <%= @current_user.name %>
-    <% else %>
-      <%= link_to "Click to enter user name", new_user_path %>
-    <% end %>
-  </p>
+    <p>Current User:
+      <% if @current_user  %>
+        <%= @current_user.name %>
+      <% else %>
+        <%= link_to "Click to enter user name", new_user_path %>
+      <% end %>
+    </p>
 
-<hr>
-
-<%= yield %>
+  <hr>
+  <%= yield %>
 
 </body>
 </html>

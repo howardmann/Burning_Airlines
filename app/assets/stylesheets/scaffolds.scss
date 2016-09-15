@@ -121,6 +121,27 @@ height:35px;
 float:left;
 }
 
+#airplane_background {
+  background: url("http://cliparts.co/cliparts/pc5/rEX/pc5rEXb9i.jpg") no-repeat center center fixed;
+  background-size: cover;
+  z-index:-1;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#airplane_background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+
+
 //code pen
 
 *,*:before,*:after {
@@ -365,4 +386,5 @@ text-align: center;
 #create_reservation{
   color: red;
   font-size: 30px;
+>>>>>>> c09a0d425e86b6dd29e0f44d3e57b517248a33e3
 }
