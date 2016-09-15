@@ -37,11 +37,13 @@
   <th>User</th>
   <th>Row</th>
   <th>Col</th>
+  <th>Seat</th>
   <% @flight.reservations.each do |reservation| %>
     <tr>
       <td><%= reservation.user.name %></td>
       <td><%= reservation.row %></td>
       <td><%= reservation.column %></td>
+      <td><%= reservation.seat %></td>
     </tr>
   <% end %>
 </table>
@@ -65,7 +67,7 @@
     </div>
 <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :row %><br>
     <%= f.number_field :row %>
   </div>
@@ -75,5 +77,120 @@
   </div>
   <div class="actions">
     <%= f.submit %>
-  </div>
+  </div> -->
+
 <% end %>
+
+<hr>
+<h3>Sets Map</h3>
+
+<div id="holder">
+      <ul  id="place">
+      </ul>
+  </div>
+</div>
+
+<script>
+//Get the data fom the Json
+//Filght Id
+//colums  rows from json id
+
+
+
+var cols = <%= @flight.airplane.rows %>+1;
+var rows =<%= @flight.airplane.columns %> + 1;
+
+
+var settings = {
+  rowCssPrefix: 'row-',
+  colCssPrefix: 'col-',
+  seatWidth: 35,
+  seatHeight: 35,
+  seatCss: 'seat',
+  selectedSeatCss: 'selectedSeat',
+  selectingSeatCss: 'selectingSeat',
+  columHeader: ['ALERT', 'A', 'B', 'C', 'D', 'E', 'F']
+};
+
+var createTable = function(reservedSeat) {
+  var str = [],
+    seatNo, className;
+  for (var i = 1; i < rows; i++) {
+    for (var j = 1; j < cols; j++) {
+
+      seatNo = (i);
+      collumId = settings.columHeader[j];
+      seatId = (seatNo + collumId);
+      passanger = [j.toString(), i.toString()];
+      console.log(passanger);
+
+
+      className = settings.seatCss + ' ' + settings.rowCssPrefix + i.toString() + ' ' + settings.colCssPrefix + j.toString();
+
+      if ($.isArray(passanger) && $.inArray(seatNo, passanger) != -1) {
+        className += ' ' + settings.selectedSeatCss;
+      }
+
+      str.push('<li class="' + className + '"' +
+        'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px">' +
+        '<a title="' + seatId + '">' + "name"+" </p>" + seatId + '</a>' +
+        '</li>');
+
+    }
+
+  }
+
+  $('#place').append(str.join(''));
+
+
+};
+//AirPlane Create
+$(document).ready(function() {
+  createTable(5);
+
+});
+
+
+
+
+//THIS FUNCTION BLOCKS THE SELECTION IF IS ALREDY BOOKED
+$('.' + settings.seatCss).click(function() {
+
+  if ($(this).hasClass(settings.selectedSeatCss)) {
+    alert('This seat is already reserved');
+  } else {
+    $(this).toggleClass(settings.selectingSeatCss);
+
+  }
+});
+
+
+//THIS FUNCTION WILL SHOW THE PPREVOIUS BOOKINGS + NEW
+$('#btnShow').click(function() {
+  var str = [];
+
+  $.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.' + settings.selectingSeatCss + ' a'), function(index, value) {
+    str.push($(this).attr('title'));
+  });
+  var alert = (str.join(','));
+  console.log("This seats are taken: " + alert);
+});
+
+//THIS FUNCTION WILL SHOW ONLY THE  NEW BOOKINGS
+
+$('#btnShowNew').click(function() {
+  var str = [],
+    item;
+  $.each($('#place li.' + settings.selectingSeatCss + ' a'), function(index, value) {
+    item = $(this).attr('title');
+    str.push(item);
+    $('#selector span').html(item);
+
+
+
+  });
+  alert(str.join(','));
+
+});
+
+</script>
