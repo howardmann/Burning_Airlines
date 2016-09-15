@@ -2,14 +2,13 @@
 //store in a variable
 // reference in the cols and rows variable
 
-
-var cols = 2 + 1;
-var rows = 2 + 1;
+var cols = 6 + 1;
+var rows = 20 + 1;
 
 var settings = {
   rowCssPrefix: 'row-',
   colCssPrefix: 'col-',
-  seatWidth: 35,
+  seatWidth: 45,
   seatHeight: 35,
   seatCss: 'seat',
   selectedSeatCss: 'selectedSeat',
@@ -35,7 +34,7 @@ var createTable = function(reservedSeat) {
 
       str.push('<li class="' + className + '"' +
         'style="top:' + (i * settings.seatHeight).toString() + 'px;left:' + (j * settings.seatWidth).toString() + 'px">' +
-        '<a title="' + seatId + '">' + '</a>' +
+        '<a title="' + seatId + '">' + " " + " </p>" + seatId + '</a>' +
         '</li>');
       console.log(str);
     }
@@ -48,16 +47,6 @@ var createTable = function(reservedSeat) {
 };
 //AirPlane Create
 $(document).ready(function() {
+  createTable();
 
-  $('#save').on('click', function() {
-
-
-
-    createTable();
-
-  });
 });
-
-//Live upadate
-// numbersFromDB = howie.json
-// createTable(numbersFromDB )
