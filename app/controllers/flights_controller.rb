@@ -14,6 +14,7 @@ class FlightsController < ApplicationController
   def show
     @user = @current_user
     @reservation = Reservation.new
+    @flight = Flight.find(params[:id])
   end
 
   # GET /flights/new
