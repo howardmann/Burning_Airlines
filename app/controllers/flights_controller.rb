@@ -4,14 +4,15 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
+    @flights = Flight.all.order("date desc")
     @flight = Flight.new
+    @current_user = User.find_by(:name => 'Admin')
   end
 
   # GET /flights/1
   # GET /flights/1.json
   def show
-    @user = User.find_by(:name => "Bob")
+    @user = @current_user
     @reservation = Reservation.new
   end
 
@@ -22,6 +23,7 @@ class FlightsController < ApplicationController
 
   # GET /flights/1/edit
   def edit
+    @current_user = User.find_by(:name => 'Admin')
   end
 
   # POST /flights

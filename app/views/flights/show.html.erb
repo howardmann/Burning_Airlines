@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <nav>
-  Bob view |
-  <%= link_to 'Search', pages_search_path	%>
+
+  <%= link_to 'Search', pages_search_path %>
   <p>Reservation for user: <%= @user.name %></p>
 </nav>
 
@@ -46,6 +46,8 @@
   <% end %>
 </table>
 
+<p>Seats taken: <%= @flight.seats_taken %></p>
+
 <hr>
 
 <h3>New reservation</h3>
@@ -61,7 +63,7 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
 
   <div class="field">
     <%= f.label :row %><br>

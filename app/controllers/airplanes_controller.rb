@@ -5,6 +5,7 @@ class AirplanesController < ApplicationController
   # GET /airplanes.json
   def index
     @airplane = Airplane.new
+    @current_user = User.find_by(:name => 'Admin')
   end
 
   # GET /airplanes/1
@@ -28,7 +29,7 @@ class AirplanesController < ApplicationController
 
     respond_to do |format|
       if @airplane.save
-        format.html { redirect_to @airplane, notice: 'Airplane was successfully created.' }
+        format.html { redirect_to flights_path, notice: 'Airplane was successfully created.' }
         format.json { render :show, status: :created, location: @airplane }
       else
         format.html { render :new }
