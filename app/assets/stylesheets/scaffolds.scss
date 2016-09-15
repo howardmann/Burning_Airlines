@@ -95,19 +95,19 @@ background-color:yellow;
 }
 #place .seat{
 
-background:url("http://demo.techbrij.com/780/images/available_seat_img.gif") no-repeat scroll 0 0 transparent;
+background:url("available_seat_img.gif") no-repeat scroll 0 0 transparent;
 height:33px;
 width:33px;
 display:block;
 }
 #place .selectedSeat
 {
-background-image:url("http://demo.techbrij.com/780/images/booked_seat_img.gif");
+background-image:url("booked_seat_img.gif");
 }
 #place .selectingSeat
 {
 
-background-image:url("http://demo.techbrij.com/780/images/selected_seat_img.gif");
+background-image:url("selected_seat_img.gif");
 }
 #place .row-3, #place .row-4{
 margin-top:10px;
