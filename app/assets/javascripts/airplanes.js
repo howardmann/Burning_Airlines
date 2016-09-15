@@ -10,13 +10,14 @@ $(document).ready(function() {
   var $rows = $("#airplane_columns");
   var $name = $("#airplane_name");
 
-  var cols = parseInt($columns.val());
-  var rows = parseInt($rows.val());
+  var cols = parseInt($columns.val()) + 1;
+  var rows = parseInt($rows.val())+ 1;
   var name = ($name.val());
+  $('#airplane_rows').val('');
+  $('#airplane_columns').val('');
+  $('#airplane_name').val('');
 
-  $("#plane_name").html(name);
-
-
+  $("#plane_name").html("Boeing "+name + " Seating plan");
 
   var settings = {
     rowCssPrefix: 'row-',
