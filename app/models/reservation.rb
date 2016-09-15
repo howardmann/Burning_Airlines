@@ -14,4 +14,9 @@
 class Reservation < ActiveRecord::Base
   belongs_to :user
   belongs_to :flight
+
+  def seat
+    [self.row, self.column]
+  end
+
 end
