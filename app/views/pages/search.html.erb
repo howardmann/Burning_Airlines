@@ -24,13 +24,6 @@
         <th>Plane</th>
         <th>Capacity</th>
         <th>Remaning</th>
-
-        <td><%= flight.date.strftime("%b %d, %Y") %></td>
-        <td><%= link_to flight.number, flight_path(flight) %></td>
-        <td><%= "#{flight.origin} > #{flight.destination}" %></td>
-        <td><%= flight.airplane.name %></td>
-        <td><%= flight.capacity %></td>
-        <td><%= flight.remaining %></td>
       </tr>
     </thead>
 
