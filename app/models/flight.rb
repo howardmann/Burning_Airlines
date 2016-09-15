@@ -26,6 +26,9 @@ class Flight < ActiveRecord::Base
     self.capacity - self.reservations.length
   end
 
+  def self.search(search_origin, search_destination)
+    where("origin LIKE ? AND destination LIKE ?", "%#{search_origin}%", "%#{search_destination}%")
+  end
   def seats_taken
     rows = self.reservations.pluck("row")
     cols = self.reservations.pluck("column")

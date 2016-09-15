@@ -2,29 +2,29 @@
 
 <h2>Search flights</h2>
 
-<input type="text" placeholder="origin">
-<input type="text" placeholder="destination">
-<button>Search flight</button>
+<!-- this will direct to pages search path on submit -->
+<%= form_tag(pages_search_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search_origin, params[:search_origin], placeholder: "Origin" %>
+  <%= text_field_tag :search_destination, params[:search_destination], placeholder: "Destination" %>
+  <%= submit_tag "Let's Go!", :name => nil %>
+<% end %>
 
-<p style="color: red"><em>Search placeholder above. User should be able to select from dropdown origin and destination and press search. After pressing search filtered results should display below. For now all results have been displayed</em></p>
+<% if @flights.blank? %>
+  <h4>There are no flights available from <%= params[:search_origin] %> to <%= params[:search_destination]%>.</h4>
+<% else %>
+  <h3>Flights</h3>
 
-<h3>Flights</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Flight</th>
-      <th>From > To</th>
-      <th>Plane</th>
-      <th>Capacity</th>
-      <th>Remaning</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @flights.each do |flight| %>
+  <table>
+    <thead>
       <tr>
+        <th>Date</th>
+        <th>Flight</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Plane</th>
+        <th>Capacity</th>
+        <th>Remaning</th>
+
         <td><%= flight.date.strftime("%b %d, %Y") %></td>
         <td><%= link_to flight.number, flight_path(flight) %></td>
         <td><%= "#{flight.origin} > #{flight.destination}" %></td>
@@ -32,6 +32,20 @@
         <td><%= flight.capacity %></td>
         <td><%= flight.remaining %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @flights.each do |flight| %>
+        <tr>
+          <td><%= flight.date %></td>
+          <td><%= link_to flight.number, flight_path(flight) %></td>
+          <td><%= "#{flight.origin}" %></td>
+          <td><%= "#{flight.destination}" %></td>
+          <td><%= flight.airplane.name %></td>
+          <td><%= flight.capacity %></td>
+          <td><%= flight.remaining %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
