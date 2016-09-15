@@ -119,3 +119,30 @@ padding-left:35px;
 height:35px;
 float:left;
 }
+// #airplane_background {
+//   background: url("airplane-background.jpg") no-repeat center center fixed;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+// }
+#airplane_background {
+  background: url("airplane-background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  z-index:-1;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+#airplane_background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
