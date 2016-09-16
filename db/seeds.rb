@@ -8,9 +8,9 @@
 
 # AIRPLANE
 Airplane.destroy_all
-airplane1 = Airplane.create(name: '757', rows: 4, columns: 24)
-airplane2 = Airplane.create(name: '747', rows: 4, columns: 24)
-airplane3 = Airplane.create(name: '190', rows: 20, columns: 30)
+airplane1 = Airplane.create(name: '757', rows: 24, columns: 4)
+airplane2 = Airplane.create(name: '747', rows: 24, columns: 4)
+airplane3 = Airplane.create(name: '190', rows: 24, columns: 4)
 
 # Check plane length
 puts "Airplane count: #{Airplane.all.length}"
@@ -55,11 +55,11 @@ puts "User names: #{User.all.pluck("name")}"
 
 # RESERVATIONS
 Reservation.destroy_all
-reservation1 = Reservation.create({:row => 1, :column =>21 })
-reservation2 = Reservation.create({:row => 2, :column =>22 })
-reservation3 = Reservation.create({:row => 3, :column =>22 })
-reservation4 = Reservation.create({:row => 4, :column =>22 })
-reservation5 = Reservation.create({:row => 3, :column =>23 })
+reservation1 = Reservation.create({:row => 21, :column =>1 })
+reservation2 = Reservation.create({:row => 22, :column =>2 })
+reservation3 = Reservation.create({:row => 22, :column =>3 })
+reservation4 = Reservation.create({:row => 22, :column =>4 })
+reservation5 = Reservation.create({:row => 23, :column =>3 })
 
 # Check reservation length
 puts "\nReservation count: #{Reservation.all.length}"
