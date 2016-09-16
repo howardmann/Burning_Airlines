@@ -22,6 +22,25 @@
 
   <hr>
   <%= yield %>
+  <script type="underscore/template" id="display-flight-heading-template">
+    <tr>
+      <th>Date</th>
+      <th>Flight</th>
+      <th>From > To</th>
+      <th>Plane</th>
+      <th>Capacity</th>
+      <th>Remaning</th>
+    </tr>
+  </script>
+
+  <script type="underscore/template" id="display-flight-view-template">
+    <td><%%= date %></td>
+    <td><%%= number %></td>
+    <td><%%= origin %> to <%%= destination %></td>
+    <td><%%= airplane.name %></td>
+    <td><%%= capacity %></td>
+    <td><%%= remaining %></td>
+  </script>
 
 </body>
 </html>
