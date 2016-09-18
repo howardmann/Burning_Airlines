@@ -3,7 +3,7 @@
 [Click to see project live on Heroku](https://burning-brazilian-airlines.herokuapp.com/)
 
 ## Team members
-- Howie
+- Howie_Burger
 - Lucas
 - Arpan
 
