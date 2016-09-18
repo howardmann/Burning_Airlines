@@ -1,7 +1,0 @@
-// search option
-
-// search by origin & by destination
-
-// only by one field
-
-// destination & origin not present
